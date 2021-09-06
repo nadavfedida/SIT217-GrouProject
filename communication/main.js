@@ -10,7 +10,7 @@ client.on('connect', () => {
     console.log('connected');
 });
 
-const topic = '/group10/messages';
+const topic = '/SIT217/219222529';
 //const msg = 'Hello MQTT world!';
 
 // Read the port data

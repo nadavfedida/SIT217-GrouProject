@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const client = mqtt.connect("mqtt://broker.hivemq.com:1883");
 
 client.on('connect', () => {
-    client.subscribe('/group10/messages');
+    client.subscribe('/SIT217/219222529');
     console.log('mqtt connected');
 });
 
@@ -11,7 +11,7 @@ client.on('message', (topic, message) => {
 });
 
 client.on('message', (topic, message) => {
-    if (topic == '/group10/messages') {    
+    if (topic == '/SIT217/219222529') {    
     msg = `${message}`;
     console.log(msg)
 ;}
