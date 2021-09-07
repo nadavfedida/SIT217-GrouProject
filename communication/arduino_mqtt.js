@@ -10,7 +10,7 @@ const client = mqtt.connect("mqtt://broker.hivemq.com:1883");
 client.on('connect', () => {
     client.subscribe('/SIT217/219222529');
     console.log('mqtt connected');
-});
+}); 
 const topic = '/SIT217/219222529';
 //const msg = 'Hello MQTT world!';
 
