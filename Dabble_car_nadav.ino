@@ -1,6 +1,12 @@
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
 #include <Dabble.h>
+#include <pins_arduino.h>
+
+
+// LED input
+int LEDlight=4;
+//int LEDin=4;
 
 //Right motor
 int enableRightMotor=5; 
@@ -12,10 +18,14 @@ int enableLeftMotor=6;
 int leftMotorPin1=9;
 int leftMotorPin2=10;
 
+
 void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(9600);
+
+  pinMode(LEDlight,OUTPUT);
+//  pinMode(LEDin,INPUT);
 
   pinMode(enableRightMotor,OUTPUT);
   pinMode(rightMotorPin1,OUTPUT);
@@ -31,13 +41,30 @@ void setup()
 
 }
 
-
-
 void loop()
 {
   int rightMotorSpeed=0;
   int leftMotorSpeed=0;
   Dabble.processInput();
+  
+if (GamePad.isTrianglePressed())
+  {
+    if (digitalRead(LEDlight) == HIGH)
+    {    
+      digitalWrite(LEDlight, LOW);    // turn the LED off by making the voltage LOW
+      return;
+    }
+    else if(digitalRead(LEDlight) == LOW)
+    {
+      digitalWrite(LEDlight, HIGH);   // turn the LED on (HIGH is the voltage level)
+      return;
+    }
+
+  }
+
+  
+  
+  
   if (GamePad.isUpPressed())
   {
     rightMotorSpeed = 150;//255
